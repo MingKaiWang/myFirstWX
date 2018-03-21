@@ -16,6 +16,16 @@ Page({
     })
   },
   onLoad: function () {
+    wx.request({
+      url: 'http://musicapi.leanapp.cn/search',
+      method: "GET",
+      data: {
+        keywords: '海阔天空'
+      },
+      success: function (res) {
+        console.log(res.data)
+      }
+    })
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
